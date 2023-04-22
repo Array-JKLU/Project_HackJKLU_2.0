@@ -22,8 +22,6 @@ urlpatterns = [
     path("", include("base.urls")),
     path("farm/", include("farm.urls")),
     path("connect/", include("connect.urls")),
+    # Django Pages URLs
     path('admin/', admin.site.urls),
-
-    # Test Apps's URLs
-    path("polls/", include("polls.urls", namespace="polls")),
 ]
