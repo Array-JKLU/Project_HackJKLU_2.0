@@ -1,14 +1,68 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <title>farmConnect</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/base/style.css' %}">
-    <link rel="shortcut icon" href="{% static 'logo.png' %}">
-  </head>
-  <body>
-    <main>
-      <h1>Under Construction</h1>
-    </main>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farmConnect</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/base/base.css' %}">
+  <link rel="shortcut icon" href="{% static 'logo.png' %}">
+</head>
+
+<body>
+  <div class="header">
+    <a href="#default" class="logo">
+      <img src="{% static 'logo.png' %}" alt="farmConnect" height="20px" width="20px" />
+      farmConnect
+    </a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#users">Users</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <main>
+    <section id="hero">
+      <h2>Connecting Farmers & Consumers</h2>
+      <p>Buy fresh, locally-sourced produce directly from Farmers</p>
+      <a href="{% url 'login' %}" class="btn">Get Started</a>
+    </section>
+
+    <section id="about">
+      <h2>farmConnect</h2>
+      <p>A web platform that connects farmers and consumers. We believe in supporting local 
+        agriculture and helping farmers sell their produce directly to consumers.</p>
+    </section>
+
+    <section id="users">
+      <section id="farmers">
+        <h2>For Farmers</h2>
+        <p>Are you a farmer looking to sell your produce directly to consumers? Join farmConnect and create a profile to
+          start selling today.</p>
+      </section>
+
+      <section id="consumers">
+        <h2>For Consumers</h2>
+        <p>Want to buy fresh, locally-sourced produce? Browse our selection of commodities in your area and buy directly
+          from the farmers.</p>
+      </section>
+      <a href="{% url 'login' %}" class="btn">Get Started</a>
+    </section>
+  </main>
+  <footer id="contact" style="text-align: center;">
+    <hr>
+    Made by
+    <h2><b>Team Yarr</b> @ <b><i>HackJKLU 2.0</i></b></h2>
+    <h3>
+      Rajat Paliwal
+      <br>Saurabh Saini
+      <br>Utkarsh Tailor
+      <br>Swastik Kulshreshtha
+    </h3>
+  </footer>
+</body>
+
 </html>

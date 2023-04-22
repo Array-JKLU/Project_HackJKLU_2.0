@@ -126,9 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "/var/www/static/",
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/')
+    BASE_DIR / "farmConnect\static"
 ]
 
 # Default primary key field type

@@ -11,24 +11,121 @@
     <link rel="shortcut icon" href="{% static 'logo.png' %}">
 </head>
 
-<body>
+<!-- <body>
     <h1>Add a New Commodity</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div>
+        <tr>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-        </div>
-        <div>
+        </tr>
+        <tr>
             <label for="price">Price:</label>
             <input type="number" id="price" name="price" min="0" step="0.01" required>
-        </div>
-        <div>
+        </tr>
+        <tr>
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" name="quantity" min="1" required>
-        </div>
+        </tr>
         <button type="submit">Add Commodity</button>
     </form>
+</body> -->
+
+<body>
+    <h1>Add Commodity</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+        <tr>
+            <th><input type="checkbox" id="item" name="item" value="Commodity" disabled></th>
+            <th>Commodity</th>
+            <th>Price</th>
+            <th>Quantity(in Kg)</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Wheat"></td>
+            <td><label for="item">Wheat</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Cracked Wheat"></td>
+            <td><label for="item">Cracked Wheat</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Corn"></td>
+            <td><label for="item">Corn</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Barley"></td>
+            <td><label for="item">Barley</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Semolina"></td>
+            <td><label for="item">Semolina</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Puffed Rice"></td>
+            <td><label for="item">Rice</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Oats"></td>
+            <td><label for="item">Oats</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Pearl Millet"></td>
+            <td><label for="item">Pearl Millet</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Green Gram"></td>
+            <td><label for="item">Green Gram</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Little Millet"></td>
+            <td><label for="item">Little Millet</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="item" name="item" value="Foxnut"></td>
+            <td><label for="item">Foxnut</label></td>
+            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="price" min="0" step="0.01" required></td>
+            <td><input type="number" id="quantity" name="quantity" min="1" required></td>
+        </tr>
+    </table>
+        <div style="text-align: center;">
+            <br><input type="number" name="total" id="total"/>
+            <br><input type="submit" value="Add Commodities">
+        </div>
+    </form>
+    <script type="text/javascript">
+        function findTotal(){
+            var arr = document.getElementsByClassName('commodity');
+            var tot=0;
+            for(var i=0;i<arr.length;i++){
+                if(parseInt(arr[i].value))
+                    tot += parseInt(arr[i].value);
+            }
+            document.getElementById('total').value = tot;
+        }
+        
+            </script>
 </body>
 
 </html>

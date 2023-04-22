@@ -15,7 +15,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             if user.groups.filter(name='farmers').exists(): return redirect(farmIndex)
-            if user.groups.filter(name='customers').exists(): return redirect(connectIndex)
+            if user.groups.filter(name='consumers').exists(): return redirect(connectIndex)
         else:
             return render(request, 'login.html', {'error': 'Invalid username or password'})
     else:
