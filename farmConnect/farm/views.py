@@ -17,22 +17,16 @@ def commodity_list(request):
     commodities = Commodity.objects.all()
     return render(request, 'commodity_list.html', {'commodities': commodities})
 
-def itemImage(item):
-    images = {
-        'Tomato': '',
-        'Potato': ''
-    }
-
 @user_passes_test(is_member)
 def commodity_add(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        price = request.POST['price']
-        quantity = request.POST['quantity']
-        
-        commodity = Commodity(name=name, price=price, quantity=quantity, image=itemImage(name))
-        commodity.save()
-        
+        commodities = ['wheat', 'crackedWheat', 'corn', 'barley', 'semolina', 'rice', 'oats', 'pearlMillet', 'greenGram', 'sorghum']
+        for i in commodities:
+            if i in request.POST:
+                price = request.POST[i+'1']
+                quantity = request.POST[i+'2']
+                commodity = Commodity(name=i, price=price, quantity=quantity)
+                commodity.save()
         return redirect(reverse('commodity_list'))
     else:
         return render(request, 'commodity_add.html')

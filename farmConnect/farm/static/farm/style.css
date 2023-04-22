@@ -1,15 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+* {
+  margin: 0;
+  padding: 8px;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: white;
   background-image: url(./bg.jpg);
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   color: white;
   margin-top: 50px;
+  cursor: default;
+}
+
+li {
+  color: white;
+}
+
+.farm_buttons a:link, .farm_buttons a:visited {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.farm_buttons a:hover, .farm_buttons a:active {
+  background-color: #3e8e41;
 }
 
 form {
@@ -26,8 +50,7 @@ table {
   width: 100%;
 }
 
-td,
-th {
+td, th {
   border: none;
   text-align: center;
   padding: 10px;

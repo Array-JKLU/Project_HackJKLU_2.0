@@ -12,9 +12,12 @@
 </head>
 
 <body>
-    <h1>Welcome to farmConnect</h1>
-    <a href="{% url 'commodity_list' %}">View your Commodities</a>
-    <a href="{% url 'commodity_add' %}">Add new Commodities</a>
+    <div class="farm_buttons" style="text-align: center;">
+        <img src="{% static 'logo.png' %}" alt="farmConnect" height="300px" width="300px" />
+        <h1>Welcome to farmConnect</h1><br>
+        <a href="{% url 'commodity_list' %}">View your Commodities</a>
+        <a href="{% url 'commodity_add' %}">Add new Commodities</a>
+    </div>
 </body>
 
 </html>
