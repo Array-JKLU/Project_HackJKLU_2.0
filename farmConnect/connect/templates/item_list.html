@@ -1,0 +1,12 @@
+{% extends "connect.html" %}
+
+{% block content %}
+    <h1>Item List</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.name }} - {{ item.description }} - ${{ item.price }}</li>
+        {% empty %}
+            <li>No items available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

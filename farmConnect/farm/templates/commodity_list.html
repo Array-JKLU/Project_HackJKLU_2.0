@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmConnect</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'farm/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'logo.png' %}">
+</head>
+
+<body>
+  <h2>Commodities for Sale by {{ request.user.username }}</h2>
+  <ul>
+    {% for commodity in commodities %}
+      <li>{{ commodity.name }} - {{ commodity.price }}</li>
+    {% empty %}
+      <li>No commodities available</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'commodity_add' %}">Add new commodities</a>
+</body>
+
+</html>

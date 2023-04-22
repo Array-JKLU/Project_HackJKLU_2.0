@@ -7,7 +7,7 @@ from connect.views import index as connectIndex
 def index(request):
     return render(request, 'base.html')
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
