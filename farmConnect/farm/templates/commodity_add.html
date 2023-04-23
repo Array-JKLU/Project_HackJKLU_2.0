@@ -11,8 +11,6 @@
     <link rel="shortcut icon" href="{% static 'logo.png' %}">
 </head>
 
-<!-- <input type="text" id="name" name="name" required> -->
-
 <body>
     <h1>
         <img src="{% static 'logo.png' %}" alt="farmConnect" height="100px" width="100px" />
@@ -21,103 +19,131 @@
     <form method="post">
         {% csrf_token %}
         <table>
-        <tr>
-            <th><input onClick="toggleAll(this)" type="checkbox" id="item" name="item" value="Commodity"></th>
-            <th>Commodity</th>
-            <th>Price (₹)</th>
-            <th>Quantity (in KG)</th>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('wheat')" type="checkbox" id="wheat" name="wheat" value="1"></td>
-            <td><label for="item">Wheat</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="wheat1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="wheat2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('crackedWheat')" type="checkbox" id="crackedWheat" name="crackedWheat" value="1"></td>
-            <td><label for="item">Cracked Wheat</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="crackedWheat1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="crackedWheat2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('corn')" type="checkbox" id="corn" name="item" value="1"></td>
-            <td><label for="item">Corn</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="corn1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="corn2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('barley')" type="checkbox" id="barley" name="item" value="1"></td>
-            <td><label for="item">Barley</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="barley1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="barley2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('semolina')" type="checkbox" id="semolina" name="item" value="1"></td>
-            <td><label for="item">Semolina</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="semolina1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="semolina2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('x')" type="checkbox" id="rice" name="item" value="1"></td>
-            <td><label for="item">Rice</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="rice1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="rice2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('x')" type="checkbox" id="item" name="item" value="1"></td>
-            <td><label for="item">Oats</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="oats1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="oats2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('x')" type="checkbox" id="item" name="item" value="1"></td>
-            <td><label for="item">Pearl Millet</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="pearlMillet1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="pearlMillet2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('x')" type="checkbox" id="item" name="item" value="1"></td>
-            <td><label for="item">Green Gram</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="greenGram1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="greenGram2" min="1" required></td>
-        </tr>
-        <tr>
-            <td><input onchange="disableIt('x')" type="checkbox" id="item" name="item" value="Sorghum"></td>
-            <td><label for="item">Sorghum</label></td>
-            <td><input onblur="findTotal()" type="number" id="price" class="commodity" name="sorghum1" min="0" step="0.1" required></td>
-            <td><input type="number" id="quantity" name="sorghum2" min="1" required></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><label for="item">Total</label></td>
-            <td><input type="number" name="total" id="total" disabled/></td>
-            <td></td>
-        </tr>
-    </table>
+            <tr>
+                <th><input onClick="toggleAll(this)" type="checkbox" id="item" name="item" value="Commodity"></th>
+                <th>Commodity</th>
+                <th>Price (₹)</th>
+                <th>Quantity (in KG)</th>
+            </tr>
+            <tr>
+                <td><input onchange="disableIt('wheat')" type="checkbox" id="wheat" class="check" name="wheat"></td>
+                <td><label for="item">Wheat</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="wheat1" min="0" step="0.1"
+                        disabled></td>
+                <td><input type="number" id="quantity" name="wheat2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('crackedWheat')" type="checkbox" id="crackedWheat" class="check"
+                        name="crackedWheat" value="1"></td>
+                <td><label for="item">Cracked Wheat</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="crackedWheat1" min="0"
+                        step="0.1" disabled></td>
+                <td><input type="number" id="quantity" name="crackedWheat2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('corn')" type="checkbox" id="corn" class="check" name="corn" value="1">
+                </td>
+                <td><label for="item">Corn</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="corn1" min="0" step="0.1"
+                        disabled></td>
+                <td><input type="number" id="quantity" name="corn2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('barley')" type="checkbox" id="barley" class="check" name="barley"
+                        value="1"></td>
+                <td><label for="item">Barley</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="barley1" min="0" step="0.1"
+                        disabled></td>
+                <td><input type="number" id="quantity" name="barley2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('semolina')" type="checkbox" id="semolina" class="check" name="semolina"
+                        value="1"></td>
+                <td><label for="item">Semolina</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="semolina1" min="0"
+                        step="0.1" disabled></td>
+                <td><input type="number" id="quantity" name="semolina2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('rice')" type="checkbox" id="rice" class="check" name="rice" value="1">
+                </td>
+                <td><label for="item">Rice</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="rice1" min="0" step="0.1"
+                        disabled></td>
+                <td><input type="number" id="quantity" name="rice2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('oats')" type="checkbox" id="oats" class="check" name="oats" value="1">
+                </td>
+                <td><label for="item">Oats</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="oats1" min="0" step="0.1"
+                        disabled></td>
+                <td><input type="number" id="quantity" name="oats2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('pearlMillet')" type="checkbox" id="pearlMillet" class="check"
+                        name="pearlMillet" value="1"></td>
+                <td><label for="item">Pearl Millet</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="pearlMillet1" min="0"
+                        step="0.1" disabled></td>
+                <td><input type="number" id="quantity" name="pearlMillet2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('greenGram')" type="checkbox" id="greenGram" class="check"
+                        name="greenGram" value="1"></td>
+                <td><label for="item">Green Gram</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="greenGram1" min="0"
+                        step="0.1" disabled></td>
+                <td><input type="number" id="quantity" name="greenGram2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td><input onClick="disableIt('sorghum')" type="checkbox" id="sorghum" class="check" name="sorghum"
+                        value="1"></td>
+                <td><label for="item">Sorghum</label></td>
+                <td><input onblur="findTotal()" type="number" id="price" class="price" name="sorghum1" min="0"
+                        step="0.1" disabled></td>
+                <td><input type="number" id="quantity" name="sorghum2" min="1" disabled></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><label for="item">Total</label></td>
+                <td><input type="number" name="total" id="total" disabled /></td>
+                <td></td>
+            </tr>
+        </table>
         <div style="text-align: center;">
             <input type="submit" value="Add Commodities">
         </div>
     </form>
     <script type="text/javascript">
         function disableIt(name) {
-            elements = document.getElementsByClassName(name);
             checkbox = document.getElementById(name);
-            for (var i=0, n=elements.length; i<n; i++) {
-                elements[i].enabled = !this.checked;
-                elements[i].required = this.checked;
+            elements1 = document.getElementsByName(name + '1');
+            elements2 = document.getElementsByName(name + '2');
+            for (var i = 0, n = elements1.length; i < n; i++) {
+                elements1[i].disabled = !checkbox.checked;
+                elements1[i].required = checkbox.checked;
+            }
+            for (var i = 0, n = elements2.length; i < n; i++) {
+                elements2[i].disabled = !checkbox.checked;
+                elements2[i].required = checkbox.checked;
             }
         }
         function toggleAll(source) {
-            checkboxes = document.getElementsByName('item');
-            for(var i=0, n=checkboxes.length; i<n; i++) {
+            checkboxes = document.getElementsByClassName('check');
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
                 checkboxes[i].checked = source.checked;
             }
+            commodities = ['wheat', 'crackedWheat', 'corn', 'barley', 'semolina', 'rice', 'oats', 'pearlMillet', 'greenGram', 'sorghum']
+            for (var i = 0, n = commodities.length; i < n; i++) {
+                disableIt(commodities[i]);
+            }
         }
-        function findTotal(){
-            var arr = document.getElementsByClassName('commodity');
-            var tot=0.0;
-            for(var i=0; i<arr.length; i++){
-                if(parseFloat(arr[i].value))
+        function findTotal() {
+            var arr = document.getElementsByClassName('price');
+            var tot = 0.0;
+            for (var i = 0; i < arr.length; i++) {
+                if (parseFloat(arr[i].value))
                     tot += parseFloat(arr[i].value);
             }
             document.getElementById('total').value = tot;

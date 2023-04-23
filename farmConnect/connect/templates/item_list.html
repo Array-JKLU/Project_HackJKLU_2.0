@@ -1,8 +1,26 @@
-<h1>Item List</h1>
-<ul>
-    {% for item in items %}
-        <li>{{ item.name }} - {{ item.description }} - ${{ item.price }}</li>
-    {% empty %}
-        <li>No items available.</li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <title>farmConnect</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'connect/style.css' %}">
+	<link rel="shortcut icon" href="{% static 'logo.png' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+    <h1>Item List</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.name }} - {{ item.description }} - ${{ item.price }}</li>
+        {% empty %}
+            <li>No items available.</li>
+        {% endfor %}
+    </ul>
+	
+</body>
+</html>
