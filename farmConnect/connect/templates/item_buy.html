@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>farmConnect</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'connect/style.css' %}">
+	<link rel="shortcut icon" href="{% static 'logo.png' %}">
+</head>
+
+<body>
+	<h1>
+		<img src="{% static 'logo.png' %}" alt="farmConnect" height="100px" width="100px" />
+		<br>Select the Items you want to Buy
+	</h1>
+	<form method="post" style="text-align: center;">
+		{% csrf_token %}
+		<main>
+			<section class="item">
+				<h2>Wheat</h2>
+				<img src="{% static 'commodities/Wheat.jpg' %}" alt="Wheat">
+				<p>Price: ₹10.00</p>
+				<input onclick="addRow('wheat')" type="checkbox" name="wheat" value="1">
+			</section>
+			<section class="item">
+				<h2>Cracked Wheat</h2>
+				<img src="{% static 'commodities/Cracked Wheat.jpg' %}" alt="Cracked Wheat">
+				<p>Price: ₹20.00</p>
+				<input onclick="addRow('crackedWheat')" type="checkbox" name="crackedWheat" value="1">
+			</section>
+			<section class="item">
+				<h2>Corn</h2>
+				<img src="{% static 'commodities/Corn.jpg' %}" alt="Corn">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('corn')" type="checkbox" name="corn" value="1">
+			</section>
+			<section class="item">
+				<h2>Barley</h2>
+				<img src="{% static 'commodities/Barley.jpg' %}" alt="Barley">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('barley')" type="checkbox" name="barley" value="1">
+			</section>
+			<section class="item">
+				<h2>Semolina</h2>
+				<img src="{% static 'commodities/Sooji.jpg' %}" alt="Semolina">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('semolina')" type="checkbox" name="semolina" value="1">
+			</section>
+			<section class="item">
+				<h2>Rice</h2>
+				<img src="{% static 'commodities/Rice.jpg' %}" alt="Rice">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('rice')" type="checkbox" name="rice" value="1">
+			</section>
+			<section class="item">
+				<h2>Green Gram</h2>
+				<img src="{% static 'commodities/Green Gram.jpg' %}" alt="Green Gram">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('greenGram')" type="checkbox" name="greenGram" value="1">
+			</section>
+			<section class="item">
+				<h2>Oats</h2>
+				<img src="{% static 'commodities/Oats.jpg' %}" alt="Oats">
+				<p>Price: ₹4.00</p>
+				<input onclick="addRow('oats')" type="checkbox" name="oats" value="1">
+			</section>
+			<section class="item">
+				<h2>Pearl Millet</h2>
+				<img src="{% static 'commodities/Pearl Millet.jpg' %}" alt="Pearl Millet">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('pearlMillet')" type="checkbox" name="pearlMillet" value="1">
+			</section>
+			<section class="item">
+				<h2>Sorghum</h2>
+				<img src="{% static 'commodities/Sorghum.jpg' %}" alt="Sorghum">
+				<p>Price: ₹30.00</p>
+				<input onclick="addRow('sorghum')" type="checkbox" name="sorghum" value="1">
+			</section>
+		</main>
+		<div class="billTable">
+		<table>
+			<tr>
+				<th>Item</th>
+				<th>Price (₹)</th>
+				<th>Quantity (in KG)</th>
+				<th>Cost</th>
+			</tr>
+			<tr style="display: none;" id="wheat">
+				<td>Wheat</td>
+				<td id="wheat0">30</td>
+				<td><input onblur="updatePrice('wheat')" type="number" class="quantity" id="wheat1" min="1" value="1"></td>
+				<td id="wheat2">0</td>
+			</tr>
+			<tr style="display: none;" id="crackedWheat">
+				<td>Cracked Wheat</td>
+				<td id="crackedWheat0">40</td>
+				<td><input onblur="updatePrice('crackedWheat')" type="number" class="quantity" id="crackedWheat1" min="1" value="1"></td>
+				<td id="crackedWheat2">0</td>
+			</tr>
+			<tr style="display: none;" id="corn">
+				<td>Corn</td>
+				<td id="corn0">30</td>
+				<td><input onblur="updatePrice('corn')" type="number" class="quantity" id="corn1" min="1" value="1"></td>
+				<td id="corn2">0</td>
+			</tr>
+			<tr style="display: none;" id="barley">
+				<td>Barley</td>
+				<td id="barley0">40</td>
+				<td><input onblur="updatePrice('barley')" type="number" class="quantity" id="barley1" min="1" value="1"></td>
+				<td id="barley2">0</td>
+			</tr>
+			<tr style="display: none;" id="semolina">
+				<td>Semolina</td>
+				<td id="semolina0">30</td>
+				<td><input onblur="updatePrice('semolina')" vtype="number" class="quantity" id="semolina1" min="1" value="1"></td>
+				<td id="semolina2">0</td>
+			</tr>
+			<tr style="display: none;" id="rice">
+				<td>Rice</td>
+				<td id="rice0">40</td>
+				<td><input onblur="updatePrice('rice')" type="number" class="quantity" id="rice1" min="1" value="1"></td>
+				<td id="rice2">0</td>
+			</tr>
+			<tr style="display: none;" id="greenGram">
+				<td>Green Gram</td>
+				<td id="greenGram0">30</td>
+				<td><input onblur="updatePrice('greenGram')" type="number" class="quantity" id="greenGram1" min="1" value="1"></td>
+				<td id="greenGram2">0</td>
+			</tr>
+			<tr style="display: none;" id="oats">
+				<td>Oats</td>
+				<td id="oats0">40</td>
+				<td><input onblur="updatePrice('oats')" type="number" class="quantity" id="oats1" min="1" value="1"></td>
+				<td id="oats2">0</td>
+			</tr>
+			<tr style="display: none;" id="pearlMillet">
+				<td>Pearl Millet</td>
+				<td id="pearlMillet0">30</td>
+				<td><input onblur="updatePrice('pearlMillet')" type="number" class="quantity" id="pearlMillet1" min="1" value="1"></td>
+				<td id="pearlMillet2">0</td>
+			</tr>
+			<tr style="display: none;" id="sorghum">
+				<td>Sorghum</td>
+				<td id="sorghum0">40</td>
+				<td><input onblur="updatePrice('sorghum')" type="number" class="quantity" id="sorghum1" min="1" value="1"></td>
+				<td id="sorghum2">0</td>
+			</tr>
+			<tr style="display: table-row;">
+				<td colspan='3'>Total</td>
+				<td id='total'>0</td>
+			</tr>
+		</table>
+	</div>
+	<button class="connect_button" type="submit">Buy</button>
+	</form>
+	</main>
+	<script>
+		items = ['wheat', 'crackedWheat', 'corn', 'barley', 'semolina', 'rice', 'greenGram', 'oats', 'pearlMillet', 'sorghum']
+		function addRow(name) {
+			row = document.getElementById(name);
+			price = document.getElementById(name+'2');
+			if (row.style.display == "none") {
+				row.style.display = "table-row";
+				price.innerHTML = updatePrice(name);
+			} else {
+				row.style.display = "none";
+				price.innerHTML = 0;
+				totalPrice();
+			}
+		}
+		function updatePrice(name) {
+			price = document.getElementById(name+'0').innerHTML;
+			qty = document.getElementById(name+'1').value;
+			total = price * qty;
+			document.getElementById(name+'2').innerHTML = total;
+			totalPrice();
+			return total;
+		}
+		function totalPrice() {
+			total = 0;
+			for (var i = 0; i < items.length; i++) {
+				total += parseFloat(document.getElementById(items[i]+'2').innerHTML);
+			}
+			document.getElementById('total').innerHTML = total;
+		}
+	</script>
+</body>
+
+</html>

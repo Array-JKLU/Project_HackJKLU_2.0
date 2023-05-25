@@ -120,6 +120,10 @@ td, th {
   background: #48d248;
 }
 
+.connect_button:active {
+  text-decoration: none;
+}
+
 .connect_button:hover {
   background: #0c6909;
 }
